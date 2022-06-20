@@ -7,17 +7,16 @@ font-family: Montserrat;
 */
 
 body {
-    background-color: #E5E5E5;
+    background-color: rgba(244, 249, 252, 0.8);
 }
+
+/* HEADER */
 
 header {
     display: flex;
     padding: 30px 29px 0px 29px;
 }
 
-.logo {
-    width: 202px;
-}
 
 .menu-button {
     display: none;
@@ -42,6 +41,7 @@ header {
 }
 
 nav {
+    display: flex;
     margin: 0 275px 0 79px;
     color: #13171D;
     font-family: 'Gilroy';
@@ -64,13 +64,21 @@ nav a:visited {
     color: #13171D;
 }
 
-nav a:hover {
+nav li a:hover {
     color: #E2001A;
     border-bottom: 2px solid #E2001A;
 }
 
 .adress-icon {
     margin-right: 20px;
+}
+
+nav .adress-block {
+    display: none;
+}
+
+nav .adress-block a{
+    color: #015AA9;
 }
 
 .adress {
@@ -156,9 +164,10 @@ nav a:hover {
         background-color: rgba(244, 249, 252, 0.8);
     }
 
-    .disable, .adress-block, nav {
+    .adress-block, nav {
         display: none;
     }
+
 
     .logo {
         z-index: 3;
@@ -203,7 +212,8 @@ nav a:hover {
     }
 
     nav.active {
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: absolute;
         z-index: 2;
         left: 0;
@@ -233,15 +243,96 @@ nav a:hover {
         margin-top: 40px;
     }
 
-    .adress-block.active {
+    nav li:hover {
+        border: none;
+    }
+
+    nav li a:active {
+        border: none;
+        color: #E2001A;
+    }
+
+    nav.active .adress-block {
         display: flex;
-        position: absolute;
-        top: 86vh;
-        z-index: 3;
+        margin: 81px 0 0 27px;
+    }
+
+    .adress-block .adress-text {
+        width: 244px;
+    }
+
+    .adress-link {
+        padding: 0;
+    }
+}
+
+@media (max-width: 320px) {
+
+    header {
+        width: 100%;
+        padding: 15px 10px;
+        justify-content: space-between;
+    }
+    
+    .logo img {
+        width: 137px;
+        height: 51px;
+    }
+
+    .menu-button {
         margin: 0;
     }
 
-    .adress-block.active .adress-text {
-        width: 205px;
+    .phone-numbers {
+        display: none;
+    }
+
+    nav.active {
+        line-height: 18px;
+    }
+
+    nav.active .phone-numbers {
+        display: flex;
+        flex-direction: column;
+        margin: 21px 0 0 9px;
+    }
+
+    nav.active .number {
+        padding: 0;
+        margin: 0;
+    }
+
+    nav.active .phone-numbers:nth-child(2) {
+        margin-top: 8px;
+    }
+
+    .number + .number::before {
+        display: none;
+    }
+
+    nav.active {
+        width: 100%;
+    }
+
+    nav.active ul {
+        margin-top: 77px;
+        margin-left: 9px;
+    }
+
+    nav.active li {
+        margin-left: 0;
+    }
+
+    nav.active li + li {
+        margin-top: 30px;
+    }
+
+    nav.active .adress-block {
+        display: flex;
+        margin: 49px 0 0 9px;
+    }
+
+    .call-button {
+        display: none;
     }
 }

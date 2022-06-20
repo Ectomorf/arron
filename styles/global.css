@@ -5,3 +5,7 @@
 .align-center {
     align-items: center;
 }
+
+.disabled {
+    display: none;
+}
