@@ -20,25 +20,41 @@ header {
 
 .menu-button {
     display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 48px;
     height: 48px;
     margin-left: 45px;
     background: #FFFFFF;
     box-shadow: 0px 8px 16px rgba(255, 107, 0, 0.16);
     border-radius: 15px;
+    cursor: pointer;
 }
 
-.menu-button-item {
+.menu-button span,
+.menu-button::before,
+.menu-button::after  {
     display: block;
+    position: relative;
     width: 18px;
     height: 2px;
     background-color: #000;
     transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.menu-button-item + .menu-button-item {
-    margin-top: 4px;
+.menu-button::before,
+.menu-button::after {
+    content: '';
 }
+
+.menu-button::before {
+    top: 6px;
+}
+
+.menu-button::after {
+    bottom: 6px;
+} 
 
 nav {
     display: flex;
@@ -69,16 +85,8 @@ nav li a:hover {
     border-bottom: 2px solid #E2001A;
 }
 
-.adress-icon {
-    margin-right: 20px;
-}
-
-nav .adress-block {
-    display: none;
-}
-
-nav .adress-block a{
-    color: #015AA9;
+.adress-block {
+    margin-right: 45px;
 }
 
 .adress {
@@ -89,6 +97,10 @@ nav .adress-block a{
     letter-spacing: 0em;
     text-align: left;
     color: #13171D;
+}
+
+.adress-icon {
+    margin-right: 20px;
 }
 
 .adress-link {
@@ -102,8 +114,13 @@ nav .adress-block a{
     text-decoration: underline;
 }
 
+.tel-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .phone-numbers {
-    margin: 0 35px 0 45.5px;
     font-family: 'Gilroy';
     font-size: 20px;
     font-weight: 600;
@@ -111,9 +128,10 @@ nav .adress-block a{
     letter-spacing: -0.01em;
     text-align: left;
     color: #13171D;
+    margin-right: 35px;
 }
 
-.phone-numbers a:visited {
+.phone-numbers, .phone-numbers a:visited {
     color: #13171D;
 }
 
@@ -155,184 +173,7 @@ nav .adress-block a{
     transition: inherit;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1905px) {
 
-    header {
-        position: absolute;
-        z-index: 3;
-        padding: 14px 24px 0 24px;
-        background-color: rgba(244, 249, 252, 0.8);
-    }
-
-    .adress-block, nav {
-        display: none;
-    }
-
-
-    .logo {
-        z-index: 3;
-    }
-
-    .menu-button {
-        position: relative;
-        z-index: 3;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-
-    .menu-button.active .menu-button-item {
-        margin: 0;
-    }
-
-    .menu-button.active .menu-button-item:nth-child(2) {
-        display: none;
-    }
-
-    .menu-button.active .menu-button-item:nth-child(1) {
-        transform: rotate(45deg);
-    }
-
-    .menu-button.active .menu-button-item:nth-child(3) {
-        position: relative;
-        top: -2px;
-        transform: rotate(-45deg);
-    }
-
-    .phone-numbers {
-        margin: 0 20px 0 111px;
-    }
-
-    .number + .number::before {
-        content: "/";
-        display: inline-block;
-        padding: 0 8px 0 8px;
-    }
-
-    nav.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        z-index: 2;
-        left: 0;
-        top: 0px;
-        width: 50%;
-        height: 100vh;
-        margin: 0;
-        padding-top: 85px;
-        background-color: #F4F9FC;
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 24px;
-        letter-spacing: -0.01em;
-        text-align: left;
-    }
-
-    nav.active ul {
-        flex-direction: column;
-        margin-top: 148px; 
-    }
-
-    nav.active li{
-        margin-left: 24px;
-    }
-
-    nav.active li + li {
-        margin-top: 40px;
-    }
-
-    nav li:hover {
-        border: none;
-    }
-
-    nav li a:active {
-        border: none;
-        color: #E2001A;
-    }
-
-    nav.active .adress-block {
-        display: flex;
-        margin: 81px 0 0 27px;
-    }
-
-    .adress-block .adress-text {
-        width: 244px;
-    }
-
-    .adress-link {
-        padding: 0;
-    }
-}
-
-@media (max-width: 320px) {
-
-    header {
-        width: 100%;
-        padding: 15px 10px;
-        justify-content: space-between;
-    }
     
-    .logo img {
-        width: 137px;
-        height: 51px;
-    }
-
-    .menu-button {
-        margin: 0;
-    }
-
-    .phone-numbers {
-        display: none;
-    }
-
-    nav.active {
-        line-height: 18px;
-    }
-
-    nav.active .phone-numbers {
-        display: flex;
-        flex-direction: column;
-        margin: 21px 0 0 9px;
-    }
-
-    nav.active .number {
-        padding: 0;
-        margin: 0;
-    }
-
-    nav.active .phone-numbers:nth-child(2) {
-        margin-top: 8px;
-    }
-
-    .number + .number::before {
-        display: none;
-    }
-
-    nav.active {
-        width: 100%;
-    }
-
-    nav.active ul {
-        margin-top: 77px;
-        margin-left: 9px;
-    }
-
-    nav.active li {
-        margin-left: 0;
-    }
-
-    nav.active li + li {
-        margin-top: 30px;
-    }
-
-    nav.active .adress-block {
-        display: flex;
-        margin: 49px 0 0 9px;
-    }
-
-    .call-button {
-        display: none;
-    }
 }
