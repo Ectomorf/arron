@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Ubuntu&display=swap');
+@import url('/fonts/gilory/stylesheet.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /* 
-font-family: 'Bebas Neue', cursive;
 font-family: Montserrat;
 */
 
@@ -14,9 +13,13 @@ body {
 
 header {
     display: flex;
-    padding: 30px 29px 0px 29px;
+    max-width: 1903px;
+    padding: 30px 21.5px 0px 21.5px;
 }
 
+.logo {
+    margin-right: 79px;
+}
 
 .menu-button {
     display: none;
@@ -25,7 +28,6 @@ header {
     flex-direction: column;
     width: 48px;
     height: 48px;
-    margin-left: 45px;
     background: #FFFFFF;
     box-shadow: 0px 8px 16px rgba(255, 107, 0, 0.16);
     border-radius: 15px;
@@ -56,20 +58,25 @@ header {
     bottom: 6px;
 } 
 
+.menu {
+    width: 100%;
+    max-width: 1579px;
+}
+
 nav {
     display: flex;
-    margin: 0 275px 0 79px;
+    margin: 0 290px 0 0;
     color: #13171D;
     font-family: 'Gilroy';
     font-size: 16px;
     font-weight: 600;
     line-height: 19px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.4px;
     text-align: left;
 }
 
 nav li + li {
-    margin-left: 24px;
+    margin-left: 28px;
 }
 
 nav a {
@@ -83,6 +90,11 @@ nav a:visited {
 nav li a:hover {
     color: #E2001A;
     border-bottom: 2px solid #E2001A;
+}
+
+.info-wrap {
+    display: flex;
+    align-items: center;
 }
 
 .adress-block {
@@ -100,7 +112,7 @@ nav li a:hover {
 }
 
 .adress-icon {
-    margin-right: 20px;
+    margin-right: 18px;
 }
 
 .adress-link {
@@ -131,11 +143,11 @@ nav li a:hover {
     margin-right: 35px;
 }
 
-.phone-numbers, .phone-numbers a:visited {
+a.phone-numbers, .phone-numbers a:visited {
     color: #13171D;
 }
 
-.number + .number::before {
+.number.before-item::before {
     content: "/";
     display: inline-block;
     padding: 0 16px 0 16px;
@@ -173,7 +185,182 @@ nav li a:hover {
     transition: inherit;
 }
 
-@media (max-width: 1905px) {
+/* DESCTOP */
 
+@media (min-width: 1921px) {
+    header {
+        /* width: 1920px; */
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1919px) {
+
+    header {
+        justify-content: space-between;
+    }
+
+    nav {
+        margin-right: 0;
+    }
+
+    .menu {
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-right: 30px;
+    }
+}
+
+
+@media (max-width: 1599px) {
+
+    .info-wrap {
+        margin-left: 24px;
+    }
+
+    .adress-block {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    .adress-text {
+        display: inline-block;
+    }
+
+    .adress {
+        max-width: 230px;
+    }
     
+    .phone-numbers {
+        flex-direction: column;
+    }
+
+
+    .number.before-item::before {
+        display: none;
+    }
+
+}
+
+@media (max-width: 1358px) {
+
+    header {
+        padding: 30px 19px 0px 19px;
+    }
+    
+    .adress {
+        max-width: 190px;
+        font-size: 12px;
+    }
+
+    .phone-numbers {
+        margin-right: 30px;
+    }
+
+    .number {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1299px) {
+
+    .logo img {
+        width: 180px;
+    }
+
+    nav li + li {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+
+    .adress-block {
+        margin-right: 25px;
+        font-size: 10px;
+    }
+
+    .adress {
+        max-width: 147px;
+    }
+
+    .adress-icon {
+        width: 30px;
+        height: 32px;
+        margin-right: 13px;
+    }
+
+    .number {
+        font-size: 16px;
+    }
+
+    .call-button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 1130px) {
+
+    header {
+        padding: 14.75px 24px 0 24px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        margin-right: 45px;
+    }
+
+    .logo img {
+        width: 202px;
+    }
+
+    .menu-button {
+        display: flex;
+    }
+
+    .menu {
+        width: 75%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu {
+        justify-content: end;
+    }
+
+    .adress {
+        max-width: 250px;
+    }
+
+    .phone-numbers {
+        flex-direction: row;
+    }
+
+    .number {
+        font-size: 20px;
+    }
+
+    .number.before-item::before {
+        display: inline-block;
+    }
+
+    .call-button {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 1050px) {
+
+    .menu {
+        width: 56%;
+    }
+
+    .adress-block {
+        display: none;
+    }
 }
