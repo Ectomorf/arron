@@ -51,12 +51,26 @@ header {
 }
 
 .menu-button::before {
-    top: 6px;
+    margin-bottom: 4px;
 }
 
 .menu-button::after {
-    bottom: 6px;
-} 
+    margin-top: 4px;
+}
+
+.menu-button.active span {
+    opacity: 0;
+}
+
+.menu-button.active::before{
+    transform: rotate(45deg);
+    margin-bottom: -2px;
+}
+
+.menu-button.active::after {
+    transform: rotate(-45deg);
+    margin-top: -2px;
+}
 
 .menu {
     width: 100%;
@@ -185,7 +199,7 @@ a.phone-numbers, .phone-numbers a:visited {
     transition: inherit;
 }
 
-/* DESCTOP */
+
 
 @media (min-width: 1921px) {
     header {
@@ -272,6 +286,9 @@ a.phone-numbers, .phone-numbers a:visited {
 
     nav li + li {
         margin-left: 15px;
+    }
+
+    nav {
         font-size: 14px;
     }
 
@@ -308,8 +325,14 @@ a.phone-numbers, .phone-numbers a:visited {
         align-items: center;
     }
 
+    .logo, .menu-button, .info-wrap {
+        position: relative;
+        z-index: 11;  
+    }
+
     .logo {
         margin-right: 45px;
+        position: relative;
     }
 
     .logo img {
@@ -323,9 +346,57 @@ a.phone-numbers, .phone-numbers a:visited {
     .menu {
         width: 75%;
     }
-
+    
     nav {
-        display: none;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    nav li {
+        opacity: 0;
+    }
+
+    nav.active {
+        display: flex;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        padding-top: 70px;
+        transition: 0.2s width;
+        background-color: #F4F9FC;
+    }
+
+    nav.active li {
+        opacity: 10;
+        transition: 1s;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin: 128px 0 81px 50px;
+    }
+
+    nav ul a, nav ul li {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-bottom: 40px;
+    }
+
+    nav li {
+        font-family: 'Gilroy';
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: -0.01em;
+        text-align: left;
+
     }
 
     .menu {
@@ -356,11 +427,50 @@ a.phone-numbers, .phone-numbers a:visited {
 
 @media (max-width: 1050px) {
 
+    .logo {
+        margin: 0;
+        }
+
     .menu {
         width: 56%;
     }
 
+    .info-wrap {
+        margin: 0;
+    }
+
+    .phone-numbers {
+        flex-direction: column;
+    }
+
+    .number {
+        font-size: 16px;
+    }
+
+    .number.before-item::before {
+        display: none;
+    }
+}
+
+@media (max-width: 913px) {
+
+    .logo {
+        margin-right: 45px;
+    }
+
     .adress-block {
         display: none;
+    }
+
+    .phone-numbers {
+        flex-direction: row;
+    }
+
+    .number {
+        font-size: 20px;
+    }
+
+    .number.before-item::before {
+        display: inline-block;
     }
 }
